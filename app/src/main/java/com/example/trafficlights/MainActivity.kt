@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         object : CountDownTimer(seconds, 1000L) {
             override fun onTick(p0: Long) {
                 Log.d(TAG, "${p0/1000}")
-
+                binding.button.isClickable = false
                 when (p0/1000) {
                     15L -> binding.redLight.setBackgroundColor(Color.RED)
                     10L -> {
@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
             override fun onFinish() {
                 binding.greenLight.setBackgroundColor(Color.BLACK)
-
+                binding.button.isClickable = true
                 Snackbar.make(
                     binding.root,
                     "Успешно",
